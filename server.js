@@ -9,6 +9,7 @@ import apiDocs from "./swagger.json" assert {type: 'json'};
 import cors from "cors";
 import loggerMiddleware from "./feature/middlewares/logger.middleware.js";
 import {connectToMongoDb} from "./conf/mongodb.js";
+import dotenv from "dotenv";
 
 const server = express()
 
@@ -16,6 +17,8 @@ const corsOptions = {
     origin: "*",
     allowedHeaders: "*",
 }
+// Load all env Variable in Application
+dotenv.config();
 
 server.use(bodyParser.json());
 server.use(cors(corsOptions));

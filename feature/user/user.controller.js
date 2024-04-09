@@ -30,7 +30,8 @@ export class UserController{
             res.status(400).send("Incorrect Credentials");
         else 
         {
-            const token = jwt.sign({userId: user.id, email: user.email},"ml3j4XAe2M",{
+            const token = jwt.sign({userId: user._id, email: user.email},
+                process.env.JWT_SECRET,{
                 expiresIn: "1 hour",
             });
             res.status(201).send(token);

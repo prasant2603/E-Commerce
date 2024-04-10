@@ -6,7 +6,7 @@ export default class CartModel{
         this.productId=productId;
         this.userId=userId;
         this.quantity=quantity;
-        this.id=id;
+        this._id=id;
     }
     static addItem(productId, userId, quantity){
         const user = userModel.getAll().find(
